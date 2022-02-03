@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Lecture de notes en clefs de sol et fa</title>
+      <link href="lecture-de-notes.css" rel="stylesheet" type="text/css" />
+   </head>
+   <body>
+      <div id="main">
+         <div id="parameters">
+            <label for="note-count">Nombre de note : </label>
+            <input id="note-count" type="number" min="10" max="200" value="20" />
+            <br/>
+            <label for="time-interval">Intervalle entre deux notes : </label>
+            <input id="time-interval" type="number" min="100" max="2000" value="2000" /> millisecondes
+            <br/>
+            <label for="with-names">Activer l'aide sur le clavier : </label>
+            <input id="with-names" type="checkbox" checked="true" />
+            <br/>
+            <label for="round">Lecture de la note n°</label>
+            <input id="round" type="number" min="1" max="200" value="1" readonly="true"/>
+            <button id="start">Démarrer</button>
+         </div>
+         <div id="diese">&#9839;</div>
+         <div id="bemol">&#9837;</div>
+         <p></p>
+         <img id="portées" src="portées.jpg" />
+         <img id="clavier" src="clavier.jpg" />
+         <img id="note"    src="note.png" />
+      </div>
+      <script src="lecture-de-notes.js"></script>
+   </body>
+</html>

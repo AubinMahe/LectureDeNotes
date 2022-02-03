@@ -1,0 +1,42 @@
+#main {
+	text-align: center;
+}
+#parameters {
+	display     : inline-block;
+   text-align  : left;
+   margin-left : auto;
+   margin-right: auto;
+}
+label {
+   display   : inline-block;
+   width     : 240px;
+   text-align: right;
+}
+#portées {
+	display     : block;
+	margin-left : auto;
+   margin-right: auto;
+}
+#clavier {
+   display     : block;
+   margin-left : auto;
+   margin-right: auto;
+}
+#note {
+   display : none;
+   position: absolute;
+   width   : 20px;
+   height  : 52px; 
+}
+#diese {
+   display    : none;
+   font-size  : 18px;
+   font-weight: bold;
+   position   : absolute;
+}
+#bemol {
+   display    : none;
+   font-size  : 18px;
+   font-weight: bold;
+   position   : absolute;
+}
