@@ -7,24 +7,31 @@
    </head>
    <body>
       <div id="main">
-         <div id="parameters">
-            <label for="note-count">Nombre de note : </label>
-            <input id="note-count" type="number" min="10" max="200" value="20" />
+         <div id="paramètres">
+            <label for="avec-l-aide">Activer l'aide sur le clavier : </label>
+            <input id="avec-l-aide" type="checkbox" checked="true" />
             <br/>
-            <label for="time-interval">Intervalle entre deux notes : </label>
-            <input id="time-interval" type="number" min="100" max="2000" value="2000" /> millisecondes
+            <label for="nbr-de-note-decodée">Lecture de la note n°</label>
+            <input id="nbr-de-note-decodée" type="number" min="1" max="200" value="1" readonly="true"/>
+            <button id="démarrer">Démarrer</button>
             <br/>
-            <label for="with-names">Activer l'aide sur le clavier : </label>
-            <input id="with-names" type="checkbox" checked="true" />
+            <label for="nombre-d-erreurs">Erreurs : </label>
+            <input id="nombre-d-erreurs" type="number" readonly="true"/>
             <br/>
-            <label for="round">Lecture de la note n°</label>
-            <input id="round" type="number" min="1" max="200" value="1" readonly="true"/>
-            <button id="start">Démarrer</button>
+            <label for="temps-de-lecture">Temps de lecture : </label>
+            <input id="temps-de-lecture" type="number" readonly="true"/>
+            <div id="correction-bloc">
+               <label for="correction">Correction : </label>
+               <input id="correction" type="text" readonly="true"/>
+               <button id="valider">Valider</button>
+            </div>
          </div>
          <div id="diese">&#9839;</div>
          <div id="bemol">&#9837;</div>
-         <p></p>
+         <p>&nbsp;</p>
          <img id="portées" src="portées.jpg" />
+         <p>&nbsp;</p>
+         <p>&nbsp;</p>
          <img id="clavier" src="clavier.jpg" />
          <img id="note"    src="note.png" />
       </div>
