@@ -1,3 +1,27 @@
+* {
+   margin : 0;
+   padding: 0;
+}
+#diese {
+   display    : none;
+   font-size  : 18px;
+   font-weight: bold;
+   position   : absolute;
+}
+#bemol {
+   display    : none;
+   font-size  : 18px;
+   font-weight: bold;
+   position   : absolute;
+}
+#correction {
+   display         : none;
+   position        : absolute;
+   width           : 50px;
+   height          : 50px;
+   background-color: salmon;
+   opacity         : 0.75; 
+}
 #main {
 	text-align: center;
 }
@@ -6,6 +30,8 @@
    text-align  : left;
    margin-left : auto;
    margin-right: auto;
+   border      : 1px solid lightgray;
+   margin      : 1px;
 }
 #paramètres label {
    display   : inline-block;
@@ -19,9 +45,11 @@ input[type=text],input[type=number] {
    width: 50px;
 }
 #portées {
-	display     : block;
-	margin-left : auto;
-   margin-right: auto;
+	display      : block;
+	margin-left  : auto;
+   margin-right : auto;
+   margin-top   : 50px;
+   margin-bottom: 30px;
 }
 #clavier {
    display     : block;
@@ -33,18 +61,6 @@ input[type=text],input[type=number] {
    position: absolute;
    width   : 18px;
    height  : 50px; 
-}
-#diese {
-   display    : none;
-   font-size  : 18px;
-   font-weight: bold;
-   position   : absolute;
-}
-#bemol {
-   display    : none;
-   font-size  : 18px;
-   font-weight: bold;
-   position   : absolute;
 }
 #correction-bloc {
    display     : inline-block;
