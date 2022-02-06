@@ -10,6 +10,31 @@
       <div id="bemol">&#9837;</div>
       <img id="note" src="note.png" />
       <div id="correction"></div>
+      <div id="bilan">
+         <table>
+            <thead>
+               <tr>
+                  <th>Note</th>
+                  <th>Clef de Sol</th>
+                  <th>Clef de Fa</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr><td align="right">Do</td><td   id="do-en-sol"  >0/0 = <b>100%</b></td><td id="do-en-fa"  >0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">Do#</td><td  id="do#-en-sol" >0/0 = <b>100%</b></td><td id="do#-en-fa" >0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">Ré</td><td   id="ré-en-sol"  >0/0 = <b>100%</b></td><td id="ré-en-fa"  >0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">Ré#</td><td  id="ré#-en-sol" >0/0 = <b>100%</b></td><td id="ré#-en-fa" >0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">Mi</td><td   id="mi-en-sol"  >0/0 = <b>100%</b></td><td id="mi-en-fa"  >0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">Fa</td><td   id="fa-en-sol"  >0/0 = <b>100%</b></td><td id="fa-en-fa"  >0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">Fa#</td><td  id="fa#-en-sol" >0/0 = <b>100%</b></td><td id="fa#-en-fa" >0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">Sol</td><td  id="sol-en-sol" >0/0 = <b>100%</b></td><td id="sol-en-fa" >0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">Sol#</td><td id="sol#-en-sol">0/0 = <b>100%</b></td><td id="sol#-en-fa">0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">La</td><td   id="la-en-sol"  >0/0 = <b>100%</b></td><td id="la-en-fa"  >0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">La#</td><td  id="la#-en-sol" >0/0 = <b>100%</b></td><td id="la#-en-fa" >0/0 = <b>100%</b></td></tr>
+               <tr><td align="right">Si</td><td   id="si-en-sol"  >0/0 = <b>100%</b></td><td id="si-en-fa"  >0/0 = <b>100%</b></td></tr>
+            </tbody>
+         </table>
+      </div>
       <div id="main">
          <div id="paramètres">
             <label for="avec-l-aide">Activer l'aide sur le clavier : </label>
@@ -17,7 +42,7 @@
             <br/>
             <label for="nbr-de-note-decodée">Lecture de la note n°</label>
             <input id="nbr-de-note-decodée" type="number" min="1" max="200" value="1" readonly="true"/>
-            <button id="démarrer">Démarrer</button>
+            <button id="démarrer-terminer">Démarrer</button>
             <br/>
             <label for="nombre-d-erreurs">Erreurs : </label>
             <input id="nombre-d-erreurs" type="number" readonly="true"/>
