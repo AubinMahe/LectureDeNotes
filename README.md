@@ -1,18 +1,17 @@
-# LectureDeNotes
+# Lecture de notes
 
-Outil pédagogique pour s'entrainer à lire en clefs de sol et fa.
+Outil pédagogique de lecture de note en clefs de sol et fa.
 
 ## Spécification ##
 
 L'application présente deux portées, en clefs de sol et fa.
 
-Aléatoirement, une note vient se place sur une des deux partitions et l'élève doit donner son nom et son altération au moyen d'un clavier de piano dans un temps limité.
+Aléatoirement, une note vient se place sur une des deux partitions et l'élève doit donner son nom et son altération au moyen d'un clavier de piano.
 
-Elle affiche la bonne réponse en cas d'erreur et laisse le temps à l'élève de visualiser la réponse juste puis passe à la note suivante.
+En cas d'erreur, l'application affiche la bonne réponse à l'aide d'une vignette rouge semi-transparente que l'élève doit cliquer pour passer à la note suivante.
 
-L'application évalue la justesse de la réponse et comptabilise les bonnes réponses et retient les notes non reconnues.
+L'application évalue la justesse de la réponse, le temps de réponse et comptabilise les bonnes réponses et mémorise les notes non reconnues.
 
-Quand le nombre de notes choisi est atteint, un résultat global est affiché :
-   - temps moyen de l'élève pour une bonne réponse
-   - nombre d'erreurs / nombre total
-   - les notes non reconnues
+Le nombre de notes décodées, le nombre d'erreurs et temps moyen passé par l'élève pour décoder une note est affiché en continu.
+
+Quand l'élève considère qu'il a terminé une session, il le signale et le taux de reconnaissance de chaque note, dans chaque clef, est affiché.
