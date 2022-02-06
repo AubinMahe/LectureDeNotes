@@ -59,7 +59,7 @@ class LectureDeNotes {
          else if( percent > 50 ) {
             td.style.backgroundColor = 'salmon';
          }
-         else if( percent > 25 ) {
+         else {
             td.style.backgroundColor = 'red';
          }
       }
@@ -89,11 +89,11 @@ class LectureDeNotes {
          }
          this.#bilan.style.display = 'block';
          let body = document.getElementsByTagName('body')[0];
-//         let bilanBoundingClientRect = this.#bilan.getBoundingClientRect();
-//         this.#bilan.style.top  = (( body.clientHeight - bilanBoundingClientRect.height ) / 2 ) + 'px';
-//         this.#bilan.style.left = (( body.clientWidth  - bilanBoundingClientRect.width  ) / 2 ) + 'px';
-         this.#bilan.style.width  = body.getBoundingClientRect().height;
-         this.#bilan.style.height = body.getBoundingClientRect().width;
+         let bilanBoundingClientRect = this.#bilan.getBoundingClientRect();
+         this.#bilan.style.top  = (( body.clientHeight - bilanBoundingClientRect.height ) / 2 ) + 'px';
+         this.#bilan.style.left = (( body.clientWidth  - bilanBoundingClientRect.width  ) / 2 ) + 'px';
+//         this.#bilan.style.width  = body.getBoundingClientRect().height;
+//         this.#bilan.style.height = body.getBoundingClientRect().width;
       }
    }
 
