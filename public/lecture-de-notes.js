@@ -1,5 +1,26 @@
+/* 
+    Outil pédagogique de lecture de notes en clef de Fa et clef de Sol.
+    
+    Copyright (C) 2022 Aubin MAHE
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    
+    See LICENCE file in the directory of this file.
+*/
 const NOTES       = ['Do'      ,'Ré'      ,'Mi','Fa'      ,'Sol'       ,'La'      ,'Si'];
 const NOTES_ALTER = ['Do','Do#','Ré','Ré#','Mi','Fa','Fa#','Sol','Sol#','La','La#','Si'];
+const TEST        = false;
 
 class LectureDeNotes {
 
@@ -8,6 +29,7 @@ class LectureDeNotes {
    #portées                    = document.getElementById('portées');
    #clavier                    = document.getElementById('clavier');
    #note                       = document.getElementById('note');
+   #trait                      = document.getElementById('trait');
    #diese                      = document.getElementById('diese');
    #nbr_de_notes_decodées      = document.getElementById('nbr-de-note-decodée');
    #nbr_d_erreurs              = document.getElementById('nombre-d-erreurs');
@@ -22,7 +44,7 @@ class LectureDeNotes {
    #instant_de_la_question     = 0;
    #note_en_cours              = "";
    #exercice                   = [new Map(), new Map()];
-//   #tests                      = 0;
+   #tests                      = 0;
 
    constructor() {
       this.#avec_l_aide.checked = document.cookie.split(';').some(item => item.includes('avec-l-aide=true'))
@@ -75,12 +97,13 @@ class LectureDeNotes {
          this.#nbr_de_notes_decodées.value = "0";
          this.#nbr_d_erreurs        .value = "0";
          this.#temps_de_lecture     .value = "0";
+         this.#tests                       = 0;
          this.#display_note(false);
-//         this.#tests                       = 0;
       }
       else {
          this.#démarrer.innerText = 'Démarrer';
          this.#note      .style.display = 'none';
+         this.#trait     .style.display = 'none';
          this.#diese     .style.display = 'none';
          this.#correction.style.display = 'none';
          for( let note_name of NOTES_ALTER ) {
@@ -170,6 +193,7 @@ class LectureDeNotes {
          paire.fautes++;
       }
       this.#note .style.left = ( this.#portées.offsetLeft + 200 ) + "px";
+      this.#trait.style.left = ( this.#portées.offsetLeft + 190 ) + "px";
       this.#diese.style.left = ( this.#portées.offsetLeft + 186 ) + "px";
       this.#correction.style.display = 'none';
       this.#clef_de_sol = ( Math.random() > 0.5 );
@@ -180,15 +204,18 @@ class LectureDeNotes {
       if( this.#index > 13 ) {
          this.#index = 13;
       }
-      this.#previous_index = this.#index;
       this.#alteration     = ( Math.random() > 0.5 );
-/*
-this.#clef_de_sol = false;
-this.#index       = this.#tests++;
-this.#alteration  = true;
-this.#tests %= 14;
-*/
+      if( TEST ) {
+         this.#alteration  = true;
+         this.#clef_de_sol = this.#tests < 14;
+         this.#index       = this.#tests % 14;
+         this.#tests++;
+         this.#tests %= 28;
+      }
+      this.#previous_index = this.#index;
       if( this.#clef_de_sol ) {
+         // 321.5 - 286.5 = 35
+         this.#trait.style.top = ( this.#portées.offsetTop +  39 - ( this.#index - 6 ) * 6.5 ) + "px";
          this.#note .style.top = ( this.#portées.offsetTop +   4 - ( this.#index - 6 ) * 6.5 ) + "px";
          this.#diese.style.top = ( this.#portées.offsetTop +  34 - ( this.#index - 6 ) * 6.5 ) + "px";
          if(( this.#index == 2 )||( this.#index == 6 )||( this.#index == 9 )||( this.#index == 13 )) {
@@ -197,6 +224,7 @@ this.#tests %= 14;
          this.#note_en_cours = NOTES[this.#index % 7] + ( this.#alteration ? "#" : "" );
       }
       else {
+         this.#trait.style.top = ( this.#portées.offsetTop + 105 - ( this.#index - 11 ) * 6.5 ) + "px";
          this.#note .style.top = ( this.#portées.offsetTop +  70 - ( this.#index - 11 ) * 6.5 ) + "px";
          this.#diese.style.top = ( this.#portées.offsetTop + 100 - ( this.#index - 11 ) * 6.5 ) + "px";
          if(( this.#index == 0 )||( this.#index == 4 )||( this.#index == 7 )||( this.#index == 11 )) {
@@ -204,8 +232,14 @@ this.#tests %= 14;
          }
          this.#note_en_cours = NOTES[( this.#index + 2 ) % 7] + ( this.#alteration ? "#" : "" );
       }
-      console.log(this.#note_en_cours);
+      console.log(this.#note_en_cours + " (" + this.#index + ")");
       this.#note .style.display = 'block';
+      if(( this.#index < 1 )||( this.#index > 11 )) {
+         this.#trait.style.display = 'block';
+      }
+      else {
+         this.#trait.style.display = 'none';
+      }
       this.#diese.style.display = this.#alteration ? 'block' : 'none';
       this.#instant_de_la_question = Date.now();
    }

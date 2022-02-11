@@ -1,6 +1,30 @@
+/* 
+    Outil pédagogique de lecture de notes en clef de Fa et clef de Sol.
+    
+    Copyright (C) 2022 Aubin MAHE
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    
+    See LICENCE file in the directory of this file.
+*/
 * {
    margin : 0;
    padding: 0;
+}
+#trait {
+   display : none;
+   position: absolute;
 }
 #note {
    display : none;
@@ -9,12 +33,6 @@
    height  : 50px; 
 }
 #diese {
-   display    : none;
-   font-size  : 18px;
-   font-weight: bold;
-   position   : absolute;
-}
-#bemol {
    display    : none;
    font-size  : 18px;
    font-weight: bold;
@@ -57,6 +75,9 @@
    margin-right: auto;
    border      : 1px solid lightgray;
    margin      : 1px;
+}
+#agpl-licence {
+	float: right;
 }
 #paramètres label {
    display   : inline-block;
