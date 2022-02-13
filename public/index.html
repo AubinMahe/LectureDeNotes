@@ -26,12 +26,13 @@
       <link href="lecture-de-notes.css" rel="stylesheet" type="text/css" />
    </head>
    <body>
-      <img id="trait" src="trait.jpg" />
-      <img id="note"  src="note.png" />
+      <img id="trait" src="trait.jpg" alt="trait sous la note" />
+      <img id="note"  src="note.png" alt="note placée de façon aléatoire" />
       <div id="diese">&#9839;</div>
       <div id="correction"></div>
       <div id="bilan">
          <table>
+            <caption>Rapport d'exercice.</caption>
             <thead>
                <tr>
                   <th>Note</th>
@@ -40,23 +41,23 @@
                </tr>
             </thead>
             <tbody>
-               <tr><td align="right">Do</td><td   id="do-en-sol"  >0/0 = <b>100%</b></td><td id="do-en-fa"  >0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">Do#</td><td  id="do#-en-sol" >0/0 = <b>100%</b></td><td id="do#-en-fa" >0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">Ré</td><td   id="ré-en-sol"  >0/0 = <b>100%</b></td><td id="ré-en-fa"  >0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">Ré#</td><td  id="ré#-en-sol" >0/0 = <b>100%</b></td><td id="ré#-en-fa" >0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">Mi</td><td   id="mi-en-sol"  >0/0 = <b>100%</b></td><td id="mi-en-fa"  >0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">Fa</td><td   id="fa-en-sol"  >0/0 = <b>100%</b></td><td id="fa-en-fa"  >0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">Fa#</td><td  id="fa#-en-sol" >0/0 = <b>100%</b></td><td id="fa#-en-fa" >0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">Sol</td><td  id="sol-en-sol" >0/0 = <b>100%</b></td><td id="sol-en-fa" >0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">Sol#</td><td id="sol#-en-sol">0/0 = <b>100%</b></td><td id="sol#-en-fa">0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">La</td><td   id="la-en-sol"  >0/0 = <b>100%</b></td><td id="la-en-fa"  >0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">La#</td><td  id="la#-en-sol" >0/0 = <b>100%</b></td><td id="la#-en-fa" >0/0 = <b>100%</b></td></tr>
-               <tr><td align="right">Si</td><td   id="si-en-sol"  >0/0 = <b>100%</b></td><td id="si-en-fa"  >0/0 = <b>100%</b></td></tr>
+               <tr><td>Do</td><td   id="do-en-sol"  ></td><td id="do-en-fa"  ></td></tr>
+               <tr><td>Do#</td><td  id="do#-en-sol" ></td><td id="do#-en-fa" ></td></tr>
+               <tr><td>Ré</td><td   id="ré-en-sol"  ></td><td id="ré-en-fa"  ></td></tr>
+               <tr><td>Ré#</td><td  id="ré#-en-sol" ></td><td id="ré#-en-fa" ></td></tr>
+               <tr><td>Mi</td><td   id="mi-en-sol"  ></td><td id="mi-en-fa"  ></td></tr>
+               <tr><td>Fa</td><td   id="fa-en-sol"  ></td><td id="fa-en-fa"  ></td></tr>
+               <tr><td>Fa#</td><td  id="fa#-en-sol" ></td><td id="fa#-en-fa" ></td></tr>
+               <tr><td>Sol</td><td  id="sol-en-sol" ></td><td id="sol-en-fa" ></td></tr>
+               <tr><td>Sol#</td><td id="sol#-en-sol"></td><td id="sol#-en-fa"></td></tr>
+               <tr><td>La</td><td   id="la-en-sol"  ></td><td id="la-en-fa"  ></td></tr>
+               <tr><td>La#</td><td  id="la#-en-sol" ></td><td id="la#-en-fa" ></td></tr>
+               <tr><td>Si</td><td   id="si-en-sol"  ></td><td id="si-en-fa"  ></td></tr>
             </tbody>
          </table>
       </div>
       <div id="main">
-         <img id="agpl-licence" src="agplv3-88x31.png" />
+         <img id="agpl-licence" src="agplv3-88x31.png" alt="GNU Affero General Public License logo" />
          <div id="paramètres">
             <label for="avec-l-aide">Activer l'aide sur le clavier : </label>
             <input id="avec-l-aide" type="checkbox" checked="true" />
@@ -71,8 +72,8 @@
             <label for="temps-de-lecture">Temps de lecture moyen : </label>
             <input id="temps-de-lecture" type="number" readonly="true"/>
          </div>
-         <img id="portées" src="portées.jpg" />
-         <img id="clavier" src="clavier.jpg" />
+         <img id="portées" src="portées.jpg" alt="Une portée en Sol, une autre en Fa" />
+         <img id="clavier" src="clavier.jpg" alt="Clavier de piano, avec ou sans assistance" />
       </div>
       <script src="lecture-de-notes.js"></script>
    </body>
