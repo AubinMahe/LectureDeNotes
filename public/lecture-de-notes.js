@@ -18,9 +18,10 @@
     
     See LICENCE file in the directory of this file.
 */
-const NOTES       = ['Do'      ,'Ré'      ,'Mi','Fa'      ,'Sol'       ,'La'      ,'Si'];
-const NOTES_ALTER = ['Do','Do#','Ré','Ré#','Mi','Fa','Fa#','Sol','Sol#','La','La#','Si'];
-const TEST        = false;
+const NOTES           = ['Do'      ,'Ré'      ,'Mi','Fa'      ,'Sol'       ,'La'      ,'Si'];
+const NOTES_ALTER     = ['Do','Do#','Ré','Ré#','Mi','Fa','Fa#','Sol','Sol#','La','La#','Si'];
+const TEST            = false;
+const TEST_ALTERATION = false;
 
 class Selection {
 
@@ -212,7 +213,7 @@ class LectureDeNotes {
       }
       this.#alteration = ( rnd[2] > 127 );
       if( TEST ) {
-         this.#alteration  = true;
+         this.#alteration  = TEST_ALTERATION;
          this.#clef_de_sol = this.#tests < 14;
          this.#index       = this.#tests % 14;
          this.#tests++;
@@ -245,14 +246,14 @@ class LectureDeNotes {
       this.#correction.style.display = 'none';
       this.#randomly_elaborate_next_note();
       this.#previous_index = this.#index;
+      let ndx_trait = ( this.#index == 12 )||( this.#index == 13 ) ? 12 : 0;
       if( this.#clef_de_sol ) {
-         // 321.5 - 286.5 = 35
-         this.#trait.style.top = ( this.#portées.offsetTop +  39 - ( this.#index - 6 ) * 6.5 ) + "px";
+         this.#trait.style.top = ( this.#portées.offsetTop +  39 - ( ndx_trait - 6 ) * 6.5 ) + "px";
          this.#note .style.top = ( this.#portées.offsetTop +   4 - ( this.#index - 6 ) * 6.5 ) + "px";
          this.#diese.style.top = ( this.#portées.offsetTop +  34 - ( this.#index - 6 ) * 6.5 ) + "px";
       }
       else {
-         this.#trait.style.top = ( this.#portées.offsetTop + 105 - ( this.#index - 11 ) * 6.5 ) + "px";
+         this.#trait.style.top = ( this.#portées.offsetTop + 105 - ( ndx_trait - 11 ) * 6.5 ) + "px";
          this.#note .style.top = ( this.#portées.offsetTop +  70 - ( this.#index - 11 ) * 6.5 ) + "px";
          this.#diese.style.top = ( this.#portées.offsetTop + 100 - ( this.#index - 11 ) * 6.5 ) + "px";
       }
