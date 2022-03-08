@@ -205,7 +205,7 @@ class LectureDeNotes {
       while( this.#index == this.#previous_index ) {
          this.#index = Math.round(( 14.0 * rnd[1] ) / 256.0 );
          if( this.#index == this.#previous_index ) {
-            rnd = new Uint8Array(3);
+            window.crypto.getRandomValues( rnd );
          }
       }
       if( this.#index > 13 ) {
@@ -248,12 +248,12 @@ class LectureDeNotes {
       this.#previous_index = this.#index;
       let ndx_trait = ( this.#index == 12 )||( this.#index == 13 ) ? 12 : 0;
       if( this.#clef_de_sol ) {
-         this.#trait.style.top = ( this.#portées.offsetTop +  39 - ( ndx_trait - 6 ) * 6.5 ) + "px";
-         this.#note .style.top = ( this.#portées.offsetTop +   4 - ( this.#index - 6 ) * 6.5 ) + "px";
-         this.#diese.style.top = ( this.#portées.offsetTop +  34 - ( this.#index - 6 ) * 6.5 ) + "px";
+         this.#trait.style.top = ( this.#portées.offsetTop +  39 - ( ndx_trait   -  6 ) * 6.5 ) + "px";
+         this.#note .style.top = ( this.#portées.offsetTop +   4 - ( this.#index -  6 ) * 6.5 ) + "px";
+         this.#diese.style.top = ( this.#portées.offsetTop +  34 - ( this.#index -  6 ) * 6.5 ) + "px";
       }
       else {
-         this.#trait.style.top = ( this.#portées.offsetTop + 105 - ( ndx_trait - 11 ) * 6.5 ) + "px";
+         this.#trait.style.top = ( this.#portées.offsetTop + 105 - ( ndx_trait   - 11 ) * 6.5 ) + "px";
          this.#note .style.top = ( this.#portées.offsetTop +  70 - ( this.#index - 11 ) * 6.5 ) + "px";
          this.#diese.style.top = ( this.#portées.offsetTop + 100 - ( this.#index - 11 ) * 6.5 ) + "px";
       }
@@ -270,6 +270,7 @@ class LectureDeNotes {
    }
    
    #affiche_le_clavier() {
+//      console.log( '#affiche_le_clavier|this.#avec_l_aide.checked: ' + this.#avec_l_aide.checked );
       if( this.#avec_l_aide.checked ) {
          this.#clavier.src = 'clavier.jpg';
       }
@@ -280,4 +281,5 @@ class LectureDeNotes {
    }
 }
 
-new LectureDeNotes();
+// sonarqube says: Either remove this useless object instantiation of "LectureDeNotes" or use it.
+var iLectureDeNotes = new LectureDeNotes(); // NOSONAR

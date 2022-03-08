@@ -1,0 +1,49 @@
+{
+  "name": "lecturedenotes",
+  "version": "1.0.0",
+  "description": "Outil pédagogique de lecture de notes en clefs de sol et fa.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "jest": "^27.5.1"
+  },
+  "devDependencies": {
+    "jest-sonar-reporter": "^2.0.0",
+    "jsdom": "^19.0.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "verbose"             : true,
+    "collectCoverage"     : true,
+    "collectCoverageFrom" : ["public/*.js"],
+    "coverageDirectory"   : "reports",
+    "coverageReporters"   : ["text", "json", "html"],
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
+  "jestSonar": {
+    "reportPath": "reports",
+    "reportFile": "tests.xml",
+    "indent"    : 3
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AubinMahe/LectureDeNotes.git"
+  },
+  "keywords": [
+    "lecture",
+    "notes",
+    "fa",
+    "sol",
+    "pédagogie"
+  ],
+  "author": "Aubin Mahé",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/AubinMahe/LectureDeNotes/issues"
+  },
+  "homepage": "https://github.com/AubinMahe/LectureDeNotes#readme"
+}
