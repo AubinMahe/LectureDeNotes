@@ -8,39 +8,54 @@ async function delay( ms ) {
    return new Promise( resolve => setTimeout( resolve, ms ));
 }
 
-var window          = null;
-var document        = null;
-var iLectureDeNotes = null;
+function check( val, ref ) {
+   if( val == ref ) {
+      console.log( "PASS" );
+   }
+   else {
+      console.log( "FAIL, " + val + " observed, " + ref + " expected" );
+   }
+}
 
-beforeAll( async () => {
+function match( str, regex ) {
+   if( str.match( regex )) {
+      console.log( "PASS" );
+   }
+   else {
+      console.log( "FAIL, '" + str + "' doesn't match '" + regex + "'" );
+   }
+}
+
+async function tests() {
    const dom = await JSDOM.fromURL( URL_BASE + "index.html", {
       resources : 'usable',
       runScripts: 'dangerously',
    });
    // Waiting for scripts to be loaded and executed
    await delay( 300 );
-   window          = dom.window;
-   document        = dom.window.document;
-   iLectureDeNotes = dom.window.iLectureDeNotes;
+   const window          = dom.window;
+   const document        = dom.window.document;
+   const iLectureDeNotes = dom.window.iLectureDeNotes;
    if( typeof iLectureDeNotes === 'undefined' ) {
       throw "too short timeout!";
    }
-});
+   console.log( "Page loaded" );
 
-test('Comportement de la case à cocher "Activer l\'aide sur le clavier"', () => {
+   console.log('Comportement de la case à cocher "Activer l\'aide sur le clavier"');
    let with_kbd_help = document.getElementById('avec-l-aide');
    let img_kbd       = document.getElementById('clavier');
-
-   expect( with_kbd_help.checked ).toBeFalsy();
-   expect( img_kbd.src           ).toBe ( URL_BASE + 'clavier-sans-aide.jpg' );
-   expect( document.cookie       ).toMatch( /avec-l-aide=false/ );
-
+   
+   check( with_kbd_help.checked, false );
+   check( img_kbd.src          , URL_BASE + 'clavier-sans-aide.jpg' );
+   match( document.cookie      , /avec-l-aide=false/ );
+   
    with_kbd_help.click();
-   expect( with_kbd_help.checked ).toBeTruthy();
-   expect( img_kbd.src           ).toBe ( URL_BASE + 'clavier.jpg' );
-   expect( document.cookie       ).toMatch( /avec-l-aide=true/ );
-});
-
-afterAll(() => {
+   iLectureDeNotes.toto();
+   check( with_kbd_help.checked, true );
+   check( img_kbd.src          , URL_BASE + 'clavier.jpg' );
+   match( document.cookie      , /avec-l-aide=true/ );
+   
    window.close();
-});
+}
+
+tests();

@@ -25,3 +25,4 @@ hs_err_pid*
 /.scannerwork/
 /node_modules/
 /reports/
+/coverage/

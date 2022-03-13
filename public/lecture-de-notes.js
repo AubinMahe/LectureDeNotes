@@ -279,7 +279,11 @@ class LectureDeNotes {
       }
       document.cookie = 'avec-l-aide='+this.#avec_l_aide.checked + "; SameSite=Lax; expires=Fri, 1 Jan 2100 12:00:00 UTC";
    }
+   
+   toto() {
+      this.#affiche_le_clavier();
+   }
 }
 
 // sonarqube says: Either remove this useless object instantiation of "LectureDeNotes" or use it.
-var iLectureDeNotes = new LectureDeNotes(); // NOSONAR
+var iLectureDeNotes = new LectureDeNotes(); // NO-SO-NAR

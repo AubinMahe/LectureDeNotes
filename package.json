@@ -14,14 +14,15 @@
     "jsdom": "^19.0.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "c8 node tests/lecture-de-notes.test.js"
   },
   "jest": {
     "verbose"             : true,
+    "testEnvironment"     : "jsdom",
     "collectCoverage"     : true,
     "collectCoverageFrom" : ["public/*.js"],
     "coverageDirectory"   : "reports",
-    "coverageReporters"   : ["text", "json", "html"],
+    "coverageReporters"   : ["text", "json", "html", "lcov", "xml"],
     "testResultsProcessor": "jest-sonar-reporter"
   },
   "jestSonar": {
