@@ -15,11 +15,3 @@ L'application évalue la justesse de la réponse, le temps de réponse et compta
 Le nombre de notes décodées, le nombre d'erreurs et temps moyen passé par l'élève pour décoder une note est affiché en continu.
 
 Quand l'élève considère qu'il a terminé une session, il le signale et le taux de reconnaissance de chaque note, dans chaque clef, est affiché.
-
-## Outillage ##
-
-```bash
-npm install --save-dev jest
-npm install --save-dev jsdom
-npm install --save-dev jest-sonar-reporter 
-```
